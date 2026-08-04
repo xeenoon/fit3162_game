@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silent Labyrinth — Dungeon Editor</title>
+  </head>
+  <body>
+    <div id="app">
+      <header id="topbar">
+        <div class="brand">
+          <span class="logo">◈</span>
+          <div>
+            <h1>Silent Labyrinth</h1>
+            <p>Dungeon Editor</p>
+          </div>
+        </div>
+        <div class="topbar-controls">
+          <label class="field">
+            Biome
+            <select id="biome"></select>
+          </label>
+          <label class="field">
+            Width
+            <input id="gridW" type="number" min="4" max="128" value="24" />
+          </label>
+          <label class="field">
+            Height
+            <input id="gridH" type="number" min="4" max="128" value="16" />
+          </label>
+          <button id="resize" class="btn">Resize</button>
+          <span class="sep"></span>
+          <button id="clear" class="btn">Clear</button>
+          <button id="save" class="btn btn-primary">Save JSON</button>
+          <button id="load" class="btn">Load JSON</button>
+          <input id="fileInput" type="file" accept="application/json" hidden />
+        </div>
+      </header>
+
+      <div id="body">
+        <aside id="palette">
+          <h2>Terrain</h2>
+          <div id="tilePalette" class="palette-grid"></div>
+          <h2>Objects</h2>
+          <div id="objectPalette" class="palette-grid"></div>
+          <h2>Tools</h2>
+          <div id="toolPalette" class="palette-grid"></div>
+          <p class="hint" id="toolHint"></p>
+        </aside>
+
+        <main id="canvasWrap">
+          <canvas id="stage"></canvas>
+          <div id="statusbar">
+            <span id="coords">—</span>
+            <span id="tool">—</span>
+            <span class="grow"></span>
+            <span id="help">Left-drag: paint · Right-drag: erase · Scroll: zoom · Space-drag / middle: pan</span>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
