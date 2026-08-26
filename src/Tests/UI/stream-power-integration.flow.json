@@ -1,0 +1,30 @@
+{
+  "name": "integrated stream-power terrain renders in relief and plan view",
+  "steps": [
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=steep dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 20
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 15 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/stream-power-steep.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    { "do": "wait", "gone-window": "Silent Labyrinth", "timeout": 5 },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=top dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 20
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 15 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/stream-power-top.png" },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Escape" },
+    { "do": "wait", "window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY", "timeout": 5 },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Escape" },
+    { "do": "wait", "gone-window": "Silent Labyrinth", "timeout": 5 }
+  ]
+}

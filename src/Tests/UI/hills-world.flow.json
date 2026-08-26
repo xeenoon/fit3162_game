@@ -1,0 +1,82 @@
+{
+  "name": "integrated Hills and Mountain world is visible selectable and enters the linked mountain dungeon",
+  "steps": [
+    {
+      "do": "exec",
+      "cmd": "swaymsg '[app_id=\"Game\"] kill'"
+    },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Return"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS",
+      "timeout": 5
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Right"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:2 | Biome:HILLS",
+      "timeout": 5
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Right"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:3 | Biome:MOUNTAIN",
+      "timeout": 5
+    },
+    {
+      "do": "snapshot",
+      "file": "Tests/UI/Evidence/hills-world.png"
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Return"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | Explore | Dungeon:3 | Biome:MOUNTAIN | X:190 Y:146",
+      "timeout": 5
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Escape"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:3 | Biome:MOUNTAIN",
+      "timeout": 5
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Escape"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 5
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Escape"
+    },
+    {
+      "do": "wait",
+      "gone-window": "Silent Labyrinth",
+      "timeout": 5
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "name": "hill ridge forest pipeline renders at 1920x1080",
+  "steps": [
+    {
+      "do": "exec",
+      "cmd": "swaymsg output HEADLESS-1 mode 1920x1080"
+    },
+    {
+      "do": "exec",
+      "cmd": "swaymsg '[app_id=\"Game\"] kill'"
+    },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_RENDER_1080=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=steep dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 30
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Return"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS",
+      "timeout": 30
+    },
+    {
+      "do": "snapshot",
+      "file": "Tests/UI/Evidence/hill-ridge-forest-steep-1080.png"
+    },
+    {
+      "do": "exec",
+      "cmd": "swaymsg '[app_id=\"Game\"] kill'"
+    },
+    {
+      "do": "wait",
+      "gone-window": "Silent Labyrinth",
+      "timeout": 10
+    },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_RENDER_1080=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=top dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 30
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Return"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS",
+      "timeout": 30
+    },
+    {
+      "do": "snapshot",
+      "file": "Tests/UI/Evidence/hill-ridge-forest-top-1080.png"
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Escape"
+    },
+    {
+      "do": "wait",
+      "window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    {
+      "do": "exec",
+      "cmd": "wlkeyboard -H 100 Escape"
+    },
+    {
+      "do": "wait",
+      "gone-window": "Silent Labyrinth",
+      "timeout": 10
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "restart from an active puzzle",
+  "steps": [
+    {"do":"exec","cmd":"pkill -x Game 2>/dev/null || true"},
+    {"do":"exec","cmd":"env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 dotnet run --no-build --project Game.csproj","wait_window":"Silent Labyrinth | Menu | Selected:BEGIN JOURNEY","timeout":10},
+    {"do":"exec","cmd":"wlkeyboard -H 100 Return"},
+    {"do":"wait","window":"Silent Labyrinth | World Map | Selected:1 | Biome:RUINS","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 100 Return"},
+    {"do":"wait","window":"Silent Labyrinth | Explore | Dungeon:1 | Biome:RUINS | X:190 Y:146","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 200 d","sleep":0.3},
+    {"do":"exec","cmd":"wlkeyboard -H 100 e"},
+    {"do":"wait","window":"Status:HIDDEN OBJECTIVE","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 350 d","sleep":0.45},
+    {"do":"exec","cmd":"wlkeyboard -H 100 e"},
+    {"do":"wait","window":"Status:SWITCH ACTIVATED","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 100 e"},
+    {"do":"wait","window":"Lockpick | PIN TUMBLER | Pin:1 | Values:000","timeout":5},
+    {"do":"profiler","op":"on","directory":"/tmp/silent-labyrinth-puzzle-restart-profile","app":"Game","interval_ms":20},
+    {"do":"exec","cmd":"wlkeyboard -H 100 r"},
+    {"do":"wait","window":"Explore | Dungeon:1 | Biome:RUINS | X:190 Y:146 | Status:FIND CLUES AND OPEN THE VAULT","timeout":5},
+    {"do":"profiler","op":"off","expect_visual":1},
+    {"do":"exec","cmd":"wlkeyboard -H 100 Escape"},
+    {"do":"wait","window":"Silent Labyrinth | World Map | Selected:1 | Biome:RUINS","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 100 Escape"},
+    {"do":"wait","window":"Silent Labyrinth | Menu | Selected:BEGIN JOURNEY","timeout":5},
+    {"do":"exec","cmd":"wlkeyboard -H 100 Escape"},
+    {"do":"wait","gone-window":"Silent Labyrinth","timeout":5}
+  ]
+}

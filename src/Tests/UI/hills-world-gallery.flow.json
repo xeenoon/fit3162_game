@@ -1,0 +1,100 @@
+{
+  "name": "Hills and Mountain PR gallery captures three angles at three overview levels",
+  "steps": [
+    {
+      "do": "exec",
+      "cmd": "swaymsg '[app_id=\"Game\"] kill'"
+    },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=top SILENT_LABYRINTH_MAP_ZOOM=1 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-top-1x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=slight SILENT_LABYRINTH_MAP_ZOOM=1 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-slight-1x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=steep SILENT_LABYRINTH_MAP_ZOOM=1 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-steep-1x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=top SILENT_LABYRINTH_MAP_ZOOM=4 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-top-4x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=slight SILENT_LABYRINTH_MAP_ZOOM=4 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-slight-4x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=steep SILENT_LABYRINTH_MAP_ZOOM=4 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-steep-4x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=top SILENT_LABYRINTH_MAP_ZOOM=16 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-top-16x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=slight SILENT_LABYRINTH_MAP_ZOOM=16 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-slight-16x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    {
+      "do": "exec",
+      "cmd": "env LIBGL_ALWAYS_SOFTWARE=1 SILENT_LABYRINTH_SEED=2026 SILENT_LABYRINTH_MAP_FREEZE=1 SILENT_LABYRINTH_MAP_CAMERA=steep SILENT_LABYRINTH_MAP_ZOOM=16 dotnet run --no-build --project Game.csproj",
+      "wait_window": "Silent Labyrinth | Menu | Selected:BEGIN JOURNEY",
+      "timeout": 10
+    },
+    { "do": "exec", "cmd": "wlkeyboard -H 100 Return" },
+    { "do": "wait", "window": "Silent Labyrinth | World Map | Selected:1 | Biome:HILLS", "timeout": 5 },
+    { "do": "snapshot", "file": "Tests/UI/Evidence/hills-world-steep-16x.png" },
+    { "do": "exec", "cmd": "swaymsg '[app_id=\"Game\"] kill'" },
+    { "do": "wait", "gone-window": "Silent Labyrinth", "timeout": 5 }
+  ]
+}
