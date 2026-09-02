@@ -1,0 +1,8 @@
+seed=2026
+size=193
+iterations=240
+slope_area_samples=14
+slope_area_slope=-0.4257
+slope_area_r_squared=0.6804
+talus_fraction_0.50_to_0.66=0.1029
+max_drainage_area=13357.91

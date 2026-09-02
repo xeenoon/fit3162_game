@@ -1,0 +1,727 @@
+﻿Project Proposal Report:
+Silent Labyrinth
+Group S1_CS_25
+Ahmad Abu-Shaqra - 33109044
+Anh Nguyen - 32528558
+Chris Whalley - 34960457
+Geomher Vergara - 31580394
+Imran Hagi - 33109184
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Total Word Count: 3449
+________________
+
+
+I Table of Contents
+I Table of Contents        2
+II Authorship Statement        4
+III AI Declaration Statement        4
+1 Introduction        5
+2 Background and Literature Review        6
+2.1 Background Introduction        6
+2.2 Literature Review        6
+2.2.1 Target Audience and Market Gap        6
+2.2.2 Development Tools and Frameworks        7
+2.2.3 Project Management Methodologies        7
+2.3 Conclusion        7
+3 Project Management Plan        8
+3.1 Scope and Requirements        8
+3.1.1 In Scope        8
+3.1.2 Out of Scope        8
+3.1.3 Requirement Traceability Matrix        8
+3.2 Project Organisation        9
+3.2.1 Scrum Overview        9
+3.2.1.1 Scrum Team        9
+3.2.1.2 Scrum Backlog        10
+3.2.1.3 Scrum Ceremonies        10
+3.2.2 Rationale for Choosing Scrum        10
+3.2.3 Adapting Scrum for Our Project        11
+3.2.3.1 Overview        11
+3.2.3.2 Additional Roles and Responsibilities        11
+3.3 Schedule and Resource Requirements        11
+3.4 Management Process        12
+3.4.1 Risk Management        12
+3.4.2 Monitoring and Controlling Mechanisms        13
+4 Proposed Methodology        14
+4.1 Required Software, Utilities, and Tools        14
+4.2 Stages of Development        14
+4.3 Testing and QA        15
+5 Conclusion        16
+6 Bibliography        17
+7 Appendices        19
+Appendix A: Work Breakdown Structure        19
+Appendix B: Gantt Chart        19
+Appendix B1: Project Initiation Phase        19
+Appendix B2: Sprint 1        19
+Appendix B3: Sprint 2        20
+Appendix B4: Sprint 3        20
+Appendix B5: Sprint 4        20
+Appendix B6: Sprint 5        21
+Appendix C: Requirements Traceability Matrix        22
+Appendix D: Risk Register        24
+Appendix D1: Probability-Impact Matrix        24
+Appendix D2: Risk Register        24
+________________
+
+
+II Authorship Statement
+Ahmad wrote the initial draft and finalised the text for section 1, 3.2, and 5. He also prepared the WBS (see Appendix A), and contributed to the RTM (see Appendix C). He also assisted in the editing and styling of the entire report.
+
+
+Anh wrote the initial draft and finalised the text for the background and literature review (section 2.0), and contributed to the RTM (see Appendix C).
+
+
+Chris wrote the initial draft of the proposed methodology (section 4), contributed to the RTM (see Appendix C), and prepared Figure 2.
+
+
+Geomher wrote the initial draft and finalised the text for section 3.4. He also set up the final report document template and prepared the risk register (see Appendix D).
+
+
+Imran wrote the initial draft and finalised the text for section 3.1 and 3.3. He also prepared the gantt chart (see Appendix B) and contributed to the RTM.
+III AI Declaration Statement
+Throughout this report, generative AI (such as ChatGPT and Claude) were used to condense and rephrase sections of human-written text. AI was also used to assist in the creation of report summaries such as part of the introduction and conclusion. AI was not used to do research, make decisions, or write significant sections of text independently.
+________________
+
+
+1 Introduction
+This project proposal outlines the planned development of a procedurally generated dungeon-based game called Silent Labyrinth by a small student team. The project focuses on designing a modular game system that will incorporate procedural world generation, puzzle-driven gameplay mechanics, and dynamic environmental elements. The team will be responsible for planning the full development lifecycle, including project management, system design, implementation planning, testing strategies, and quality assurance processes, before developing the game according to the proposed design.
+
+
+The project addresses the challenge of creating replayable and engaging non-violent dungeon exploration gameplay within the constraints of a student project, where both development time and available resources are limited. While the dungeon-crawler genre has experienced significant growth and remains popular among players, mainstream titles are predominantly focused on combat-oriented gameplay. This creates an opportunity to explore an alternative approach centred on puzzle-solving, exploration, and environmental interaction. Traditional level design can also result in repetitive and predictable experiences; therefore, procedural generation has been selected to increase replayability while maintaining structured gameplay through controlled dungeon layouts and modular puzzle systems.
+
+
+The proposed game will combine an overworld generated through procedural techniques with interconnected dungeon environments containing a variety of puzzle-based challenges. Core gameplay will focus on exploration, progression, and puzzle-solving rather than combat, with systems designed to support player progression, world persistence, and replayability. The expected outcome of this project is a complete design and implementation plan for a playable prototype that demonstrates the feasibility of these concepts.
+
+
+This report provides an overview of the project's background and supporting literature, including the identified market gap, relevant development technologies, and project management methodologies. It then presents the proposed project management plan, covering project scope, team organisation, scheduling, resource requirements, and risk management strategies. The proposed methodology section details the planned development tools, development stages, and testing approach that will be used throughout the project. Finally, the report concludes with a summary of the proposal and expected outcomes, with supporting references and appendices included for completeness.
+________________
+
+
+2 Background and Literature Review
+2.1 Background Introduction
+The dungeon-crawler genre has experienced significant market growth, yet no mainstream title offers a non-violent, puzzle-driven experience. This review examines four key areas relevant to this project: university student preferences and the case for non-violent game design, the roguelike and dungeon-crawler market, 2D development frameworks, and project management methodologies. Together, these areas establish context and reveal the gap this project is positioned to fill.
+2.2 Literature Review
+2.2.1 Target Audience and Market Gap
+PC gaming is broadly accessible to the target demographic: Bhalla [1] reports 96% of university students own a laptop or desktop, confirming a PC-based game can reach this audience without platform exclusivity concerns. Millamena et al. [2] surveyed 100 undergraduates and found that adventure and strategy games in fantasy contexts are the most preferred genres, directly supporting the genre chosen for this project.
+
+The broader market further validates the dungeon-crawler format's commercial appeal. Pednekar [3] reports the roguelike market was valued at $3.2 billion USD in 2024, projected to grow at 10.5% annually. However, the dominant titles: The Binding of Isaac [4], Hades [5], and Enter the Gungeon [6] all rely on combat as their primary mechanic. No mainstream dungeon-crawler offers a non-violent, puzzle-driven alternative, leaving a clear and unaddressed gap in this growing market.
+
+
+The closest competing titles are The Legend of Zelda series [7] and Portal 2 [8]. Zelda demonstrates that puzzle-solving and dungeon exploration can serve as the structural foundation of a commercially successful game; however, combat remains integral to its loop, disqualifying it as a non-violent alternative. Portal 2 removes combat entirely in favour of pure puzzle mechanics but lacks the stealth, inventory, and enemy-avoidance mechanisms fundamental to this project. Neither title provides the precise combination sought, confirming the gap remains unfulfilled.
+
+Although causation remains contested in the literature, Anderson et al. [9] conducted a meta-analytic review that found consistent associations between violent video game exposure and increased aggressive cognition and behaviour. This provides academic grounds for developing a non-violent alternative that retains cognitive engagement. Ryan, Rigby, and Przybylski [10] applied Self-Determination Theory to video games, demonstrating that intrinsic player motivation is driven by competence, autonomy, and relatedness, constructs that do not require combat to fulfil. Thus supporting the case that a puzzle-driven approach can sustain player engagement as effectively as combat-based mechanics. Together, commercial demand, psychological evidence, and motivational theory form three independent justifications for this project's non-violent, puzzle-driven approach.
+2.2.2 Development Tools and Frameworks
+Two 2D frameworks were evaluated: Unity [11] and MonoGame [12]. Unity offers extensive 3D and cross-platform capabilities, but these exceed the needs of a 2D puzzle-adventure game and introduce unnecessary performance overhead. MonoGame, a lightweight C# framework, provides direct control over rendering and UI implementation, enabling the minimalist interface design advocated by Schell [13], without Unity's editorial complexity. MonoGame therefore offers the most appropriate balance of control, efficiency, and simplicity for this project.
+2.2.3 Project Management Methodologies
+Scrum is the dominant agile methodology in game development. Keith [14] argues its practices are well-suited to the experimental and rapidly evolving nature of game projects, contrasting with waterfall approaches ill-suited to frequent design pivots and emerging requirements. The continuous playtesting embedded in each sprint also functions as ongoing user testing, ensuring player-centred feedback throughout development. Jondya et al. [15] applied a Scrum methodology to a student-developed puzzle adventure game of comparable scope, reporting positive results in team coordination, incremental feature delivery, and overall product quality. Their case study provides a validated precedent for applying Scrum to a student-led puzzle adventure game, and thus is the management framework adopted for this project. 
+2.3 Conclusion
+This literature review creates a unified, multi-directional case for the project. Commercial evidence reveals a large, growing market with an unfilled gap aligned with the target demographic's preferences. Psychological research validates the non-violent, puzzle-driven approach, while competing titles confirm commercial viability and highlight the absence of the specific combination this project targets. MonoGame and Scrum emerge as the most appropriate development framework and methodology for the project's scope and iterative model. Together, the literature provides well-supported justification for the project's rationale, design, and technical decisions.
+________________
+
+
+3 Project Management Plan
+3.1 Scope and Requirements
+Silent Labyrinth is a 2D single-player puzzle adventure game designed for university students. Players navigate dungeon environments from a bird's-eye perspective, solve puzzles, locate progression items, and evade enemies using stealth rather than combat.
+
+
+The game features a procedurally generated overworld composed of multiple biomes containing dungeons. This enables players to select their next adventure while ensuring each playthrough presents unique environmental challenges and gameplay experiences.
+3.1.1 In Scope
+High Priority
+* Construction of a game loop with state and event management.
+* Creation of unique dungeons with engaging designs and puzzles.
+* Creation of game assets.
+* Development of a procedural world generation system.
+* Development of player movement and interaction systems.
+* Design and implementation of a puzzle framework.
+* Design and implementation of a 2D sprite rendering system.
+* Development of an inventory system for item collection, storage, and usage.
+* Addition of NPCs to enhance gameplay and interaction.
+
+
+Medium Priority
+* Implementation of a lighting system to create a dynamic environment.
+
+
+Low Priority
+* Integration of environmental audio.
+3.1.2 Out of Scope
+* Procedural generation of dungeons and puzzles.
+* Particle effects system.
+* 3D rendering framework.
+* Multiplayer functionality.
+3.1.3 Requirement Traceability Matrix
+The functional and non-functional requirements for Silent Labyrinth are documented in the Requirement Traceability Matrix (RTM) provided in Appendix C, which has been formally signed off and includes product acceptance criteria. Functional requirements define core gameplay features such as puzzle mechanics, dungeon progression, procedural world generation, and player interactions. Non-functional requirements specify quality attributes including performance, usability, reliability, compatibility, and maintainability.
+
+
+Requirements were obtained through three primary elicitation methods. First, the development team used introspection to identify features essential to the game's vision, including puzzle-solving mechanics, dungeon progression, and a procedurally generated overworld. Second, existing puzzle adventure games were analysed to identify successful implementations of puzzle systems, progression mechanics, and procedural generation techniques. Finally, informal discussions with university students provided feedback regarding gameplay experience, responsiveness, ease of control, compatibility, and overall game quality. This feedback was primarily used to refine the project's non-functional requirements.
+3.2 Project Organisation
+Our team has elected to employ the Scrum methodology for software development.
+3.2.1 Scrum Overview
+Scrum is an Agile software development framework that emphasises iterative and cyclical progress, illustrated below in figure 1. Work is organised into short development cycles known as sprints. The framework is defined by dedicated team roles, structured ceremonies, and a prioritised product backlog that guides development.
+
+
+  
+
+Figure 1. Typical Scrum Diagram [16]
+3.2.1.1 Scrum Team
+A typical Scrum team is composed of a Scrum Master, a Product Owner, and Developers.
+The Scrum Master is responsible for facilitating the agile process, removing blockers, supporting collaboration, and ensuring the project continuously progresses while following Scrum practices.
+The Product Owner is responsible for defining the product vision and managing the product backlog, including defining requirements, prioritising features, and representing stakeholder interests.
+The Developers are responsible for building and developing the product. This role is shared by all team members and involves designing, implementing, and testing features, fixing bugs, and fulfilling project requirements.
+3.2.1.2 Scrum Backlog
+Scrum methodology breaks down features and tasks into user stories, which capture a specific need or goal from the perspective of a user persona. Each user story focuses on a single, atomic piece of functionality and is organised into backlogs.
+The Product Backlog contains all user stories and represents everything that makes up the project.
+The Sprint Backlog contains the user stories planned for a given sprint and is where developers are assigned specific features for implementation.
+The Done Backlog is initially empty and is filled with completed user stories as sprints progress, acting as an archive and record of completion.
+3.2.1.3 Scrum Ceremonies
+During a Scrum-managed project, there are four ceremonies that make up a sprint cycle.
+First, during Sprint Planning, the Product Owner and team prioritise tasks and fill the Sprint Backlog with user stories to be implemented during the sprint, with each story allocated to a developer.
+Then, during Implementation, developers implement and test assigned features. The team also typically participates in a daily stand-up meeting where progress is discussed, blockers are identified, and solutions are put in place.
+Next, after development is complete, a Sprint Review takes place. The team demonstrates the product to the client, identifies completed features, and discusses feedback to update the backlog.
+Finally, at the end of the sprint, a Sprint Retrospective takes place. The Scrum Master leads the discussion as the team reflects on what went well, what challenges were encountered, and what improvements can be made for the next sprint.
+3.2.2 Rationale for Choosing Scrum
+Scrum was chosen due to its flexibility and iterative nature. Since we are working on a computer game, which is inherently a subjective experience, it is important that we are not only receiving constant feedback from our target users, but also able to change requirements and adjust to deliver a good product by the end of the project.
+
+
+Additionally, this framework allows our team to collaborate effectively, especially given our relatively small team size, and enables work to be organised into manageable increments. This allows us to easily track project progress and it facilitates early blocker identification which helps ensure we manage to successfully deliver by the end.
+3.2.3 Adapting Scrum for Our Project
+3.2.3.1 Overview
+For our project, we will run 2-week sprints and hold weekly stand-up meetings instead of daily ones.
+2-week sprints were chosen to suit the ~10-week project timeline, allowing enough time to make meaningful progress while maintaining an iterative development cycle. Longer sprints would reduce feedback opportunities, while shorter sprints would be too restrictive given student schedules.
+Weekly stand-ups were chosen due to competing academic, personal, and professional commitments. While daily stand-ups are common in industry, they are impractical for this project, while weekly check-ins still maintain communication and progress tracking.
+3.2.3.2 Additional Roles and Responsibilities
+Our team will include three additional specialty roles alongside the core Scrum roles.
+The System Architect is responsible for designing and managing the technical structure, guiding technology decisions, establishing architectural standards, and acting as the game engine expert and support point for developers.
+The Quality Assurance Lead is responsible for quality testing and control, defining quality standards, metrics, and test plans, and enforcing quality-related policies to ensure a maintainable, high-quality product.
+The Art and Design Lead is responsible for designing and producing game artwork, establishing artistic standards, creating design assets, and ensuring a consistent visual style throughout the game.
+3.3 Schedule and Resource Requirements
+The development phase will follow the Scrum methodology, with work organised into two-week sprints. This approach allows features to be implemented incrementally and evaluated through regular reviews and testing.
+
+
+Remaining project activities include implementing core gameplay systems, developing puzzle mechanics, creating the procedural world generation system, designing assets and user interfaces, conducting testing, resolving defects, and preparing final documentation and presentations. A detailed Work Breakdown Structure (WBS) is provided in Appendix A.
+
+
+The project schedule is presented in the Gantt chart in Appendix B. The chart identifies development activities, sprint milestones, task dependencies, and deliverables. In reality, the sprint backlogs will be made dynamically but the Gantt chart demonstrates the main group of activities that Sprint milestones mark the completion of planned work for each sprint, while task dependencies ensure prerequisite components are completed before dependent features are integrated and tested.
+
+
+The project requires both human and technical resources. The team consists of five members supervised by one project supervisor. Although all members contribute to software development, each is assigned a primary responsibility area.
+
+
+Human Resources:
+* 1 Project Supervisor 
+* 5 Team Members
+   * 5 Developers (Common Role)
+   * 1 Product Owner
+   * 1 Scrum Master
+   * 1 System Architect
+   * 1 Quality Assurance Lead
+   * 1 Art and Design Lead 
+
+
+Technical Resources:
+* 5 Windows-based development workstations.
+* Monogame game engine and integrated development environments.
+* Github for version control and collaboration.
+* Aseprite for graphics and asset creation
+* 10 weeks for development
+3.4 Management Process
+3.4.1 Risk Management
+Effective management of risks, progress and quality is essential to ensuring Silent Labyrinth is delivered within scope, on schedule, and to an acceptable standard. Risk management for this project follows a continuous iterative cycle consisting of identification, analysis, response planning, and monitoring. The team will maintain a dedicated Risk Register (Appendix D) that documents each risk’s description, root cause, triggers, probability of occurrence, impact, owner, response strategies, and the current status of the risk. This register will be monitored and updated regularly during weekly meetings.
+
+
+Risks are identified through team discussions, progress reviews, playtest feedback, and stakeholder consultations. This ensures that both technical and organisational risks are captured early. Examples include schedule delays (R1), logic bugs preventing level progression (R2), uneven team contribution (R3), and performance issues (R4). 
+
+
+Each risk is assessed using a probability-impact matrix (Appendix D1), where probabilities/likelihood range from 1 (Rare) to 5 (Almost Certain), and consequences/impact range from 1 (Insignificant) to 5 (Catastrophic). Overall risks are classified as Low, Medium, High or Extreme.
+
+
+For each risk, the team defines both a risk response (an action to prevent the risk from occurring) and an incident response (a reactive action to take if the risk occurs). This structured approach ensures that risks are not only documented, but actively managed throughout development.
+
+
+The Risk owner for each risk is responsible for tracking their assigned risk and reporting changes during weekly meetings. They also update the risk status, which is a dynamic attribute that can be Monitored, Triggered or Resolved. This can shift multiple times during development as conditions change and issues emerge
+3.4.2 Monitoring and Controlling Mechanisms
+To ensure the project remains aligned with planned milestones, the team employs several complementary monitoring and control mechanisms.
+
+
+All meeting minutes, design decisions, and planning documents are maintained in Google Drive, ensuring a centralised and accessible record of project activity. This integrates well with Monash University’s native Google Suite integration, and allows us to share our work with supervisors easily.
+
+
+Regular communication will occur through Messenger, Discord and Zoom, enabling the team to easily clarify tasks, escalate issues, and coordinate the development activities and progress. These applications have been chosen for their simplicity and ease of access. They also support early detection of risks such as R3 (uneven contribution) and R10 (technical skill limitation).
+
+
+For monitoring tasks, the team will use Trello, a Kanban-style project management tool to track tasks across stages such as To Do, In Progress, Testing and Completed. Each task in the Kanban board will also be linked to:
+* An activity in the WBS
+* One or more team members assigned to the task
+* A due date
+* Dependencies (where applicable)
+Weekly reviews will ensure that tasks align with the Gantt chart and that any slippage is identified early.
+
+
+For code version control, the team will use Github, which will enable
+* Branch-based development
+* Pull requests and code reviews
+* Merge conflict detection
+* Historical tracking of changes
+This also reduces the likelihood of R5 (loss of project files or code conflicts), and supports auditability of development progress.
+________________
+
+
+4 Proposed Methodology
+4.1 Required Software, Utilities, and Tools
+The project will be developed using the MonoGame framework, which provides the core game loop, rendering, input handling, audio, content loading, and other hardware abstractions. MonoGame was chosen for its lightweight simplicity, avoiding the complexity of Unity while removing the need for a custom engine. It is well suited for custom puzzle mechanics, procedural world generation, dynamic lighting, and save management.
+
+
+All gameplay systems will be implemented in C# on the .NET 10 runtime due to its strong compatibility with MonoGame, smooth transition from Java-based object-oriented design, extensive standard library support, and suitability for modular game development. It will be used for world generation, puzzle logic, collision detection, player interactions, lighting, and save management.
+
+
+* Development Environment: Visual Studio Code as the primary IDE.
+* Version Control: Git with GitHub for repository hosting and collaboration.
+* Asset Creation: Aseprite for pixel-art assets (sprites, environments, UI, animations).
+* Operating System: Windows 11 as the primary development and testing platform.
+4.2 Stages of Development
+We plan to develop our project in accordance with this design diagram:
+
+
+  
+
+Figure 2. Procedurally Generated Game Design Diagram
+
+
+Core systems will be developed first, including the game loop, input handling, asset loading, save management, and game state management. This establishes the foundation for all later features.
+
+
+Next, a world generation system will create procedural maps using a seeded process with Perlin Noise and Fractal Brownian Motion (fBm) to generate terrain heightmaps, which are then used to assign biomes and place dungeons. Generated data is exported and loaded at runtime for consistency.
+
+
+A world map system will then load generated data, manage dungeon selection, and track player progression through the save system.
+
+
+The dungeon system will handle playable levels, including room-based layouts, procedural or pre-authored room generation, door and transition logic, collision boundaries, and environmental object placement, providing a structured and navigable gameplay space.
+
+
+Puzzle mechanics will then be integrated as modular systems, focusing on lockpicking puzzles (pin tumbler, multi-stage vault, and damaged locks) and light-based puzzles (limited candle exploration, mirror mazes, and reflective shields).
+
+
+Rendering and lighting will follow, including sprite rendering, UI elements, particle effects, and a dynamic lighting system where light propagation, occlusion, and reflection directly influence gameplay puzzles.
+
+
+Finally, all systems will be integrated and tested together to ensure correct data flow, stability, and progression.
+4.3 Testing and QA
+Testing will be performed throughout development rather than at the end.
+
+
+Individual systems will be tested as they are developed, with integration testing focusing on level loading, progression tracking, puzzle completion, save reliability, and overall stability.
+
+
+Playtesting will also be used to identify issues with puzzle difficulty, level design, and player progression, with feedback used to fix bugs and improve gameplay before final submission.
+________________
+
+
+5 Conclusion
+Overall, this report has presented the project proposal for Silent Labyrinth, a procedurally generated, non-violent dungeon exploration game focused on puzzle-solving and stealth. The literature review identified a market opportunity for a puzzle-based alternative to traditional combat-focused dungeon crawlers. This report also describes and justifies the selection of MonoGame as the project’s technical framework, and Scrum as the project’s management framework.
+
+
+The report also outlines the project’s scope, requirements, team structure, schedule, risk management approach, development approach, and testing approach. All together, these plans provide a structured foundation for delivering a computer game that demonstrates the feasibility, replayability, and engagement that the proposed game could offer.
+________________
+
+
+6 Bibliography
+[1] P. Bhalla, “Student Laptop Usage Statistics by Model and Performance Trends (2026),” Electro IQ, Mar. 24, 2026. https://electroiq.com/stats/student-laptop-usage-statistics/
+
+
+[2] K. Millamena, A. Kwan, and N. Panlilio, “University Students’ Video Gaming - Reasons, Preferences, and Behavioural Effects,” European Conference on Games Based Learning, vol. 16, no. 1, pp. 732–741, Sep. 2022, doi: https://doi.org/10.34190/ecgbl.16.1.856.
+
+
+[3] S. Pednekar, “Roguelike Game Market Size, Share, Trends | Industry Forecast [2020-2030],” Verified Market Reports® | Get Market Analysis and Research Reports, Oct. 03, 2024. https://www.verifiedmarketreports.com/product/roguelike-game-market/
+
+
+[4] E. McMillen and F. Himsl, The Binding of Isaac [Video game]. Nicalis, 2011.
+
+
+[5] Supergiant Games, Hades [Video game]. Supergiant Games, 2020.
+
+
+[6] Dodge Roll, Enter the Gungeon [Video game]. Devolver Digital, 2016.
+
+
+[7] Nintendo, The Legend of Zelda [Video game series]. Nintendo, 1986–present.
+
+
+[8] Valve Corporation, Portal 2 [Video game]. Valve Corporation, 2011.
+
+
+[9] C. A. Anderson et al., “Violent Video Game Effects on Aggression, Empathy, and Prosocial Behavior in Eastern and Western Countries: a Meta-Analytic Review,” Psychological Bulletin, vol. 136, no. 2, pp. 151–73, Mar. 2010, doi: https://doi.org/10.1037/a0018251.
+
+
+[10] R. M. Ryan, C. S. Rigby, and A. Przybylski, “The Motivational Pull of Video Games: a Self-Determination Theory Approach,” Motivation and Emotion, vol. 30, no. 4, pp. 344–360, 2006, doi: https://doi.org/10.1007/s11031-006-9051-8.
+
+
+[11] “System requirements for Unity 6.4,” Unity Manual, 2025. https://docs.unity3d.com/Man
+ual/system-requirements.html
+
+
+[12] “Supported Platforms | MonoGame,” Monogame.net, 2022. https://docs.monogame.net/
+articles/getting_started/platforms.html
+
+
+[13] J. Schell, Tenth Anniversary: The Art of Game Design. Third edition. | Boca Raton : Taylor & Francis, a CRC title, part of the Taylor & Francis imprint, a member of the Taylor & Francis Group, the academic division of T&F Informa, plc, 2019.: A K Peters/CRC Press, 2019. doi: https://doi.org/10.1201/b22101.
+
+
+[14] C. Keith, Agile Game Development : Build, Play, Repeat. New York: Addison-Wesley, 2020.
+
+
+[15] A. G. Jondya, H. I. Anwar, M. R. Hermawan, and T. A. Deru, “Developing ‘EMBER’: A Fantasy Puzzle Adventure Game with An Approach to Agile by Applying Game-Scrum Methodology,” Engineering, Mathematics and Computer Science (EMACS) Journal, vol. 4, no. 2, pp. 39–43, Jun. 2022, doi: https://doi.org/10.21512/emacsjournal.v4i2.8428.
+
+
+[16] A. Gurnov, “What is Agile Methodology in Project Management?,” Wrike, 2024. https://www.wrike.com/project-management-guide/faq/what-is-agile-methodology-in-project-management/
+
+
+[17] “Risk Analysis Process,” www.treasury.act.gov.au, Sep. 07, 2022. https://www.treasury.act.gov.au/capital-framework/prove/detailed-technical-guidance/risk-analysis/risk-analysis-process
+________________
+
+
+7 Appendices
+Appendix A: Work Breakdown Structure
+  
+
+Appendix B: Gantt Chart
+Appendix B1: Project Initiation Phase
+  
+
+Appendix B2: Sprint 1
+  
+
+Appendix B3: Sprint 2
+  
+
+Appendix B4: Sprint 3
+  
+
+Appendix B5: Sprint 4
+  
+
+Appendix B6: Sprint 5
+  
+
+
+
+Appendix C: Requirements Traceability Matrix
+Req. ID
+	Title
+	Description
+	Categories
+	Type(s) 
+(FR / NFR)
+	Source
+	Acceptance Criteria
+	Priority
+	Status
+	R10
+	Puzzle Elements
+	The game features interactive puzzle elements which players must engage with and solve to unlock progression paths and advance through levels.
+	Gameplay, Level Design, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	Player can successfully solve puzzles to unlock the associated progression path.
+	High
+	Pending
+	R11
+	Lockpicking Puzzles
+	The game features interactive lockpicking puzzles of multiple types that the player must solve in order to progress.
+	Gameplay, Level Design, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	At least two lockpicking puzzle variants are playable and can be completed to unlock doors.
+	Medium
+	Pending
+	R12
+	Light Puzzles
+	The game features environmental puzzles that involve light that the player must traverse through in order to progress.
+	Gameplay, Level Design, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	At least one light-based puzzle is implemented.
+	Medium
+	Pending
+	R13
+	Element Interaction
+	The player should be be able to interact with elements such as switches, NPCs and treasure chests using the E key.
+	Gameplay, Level Design, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	Pressing the E key lets players interact with switches, NPCs, and treasure chests.
+	Medium
+	Pending
+	R20
+	Player Movement
+	The player must be able to navigate through dungeon environments, including moving within the dungeon and exiting to complete a level.
+	Gameplay, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	All dungeons have the ability to be completed by reaching an accessible exit.
+	High
+	Pending
+	R30
+	Restart Level
+	The player must be able to restart the current dungeon at any point during gameplay, resetting all dungeon state to its initial configuration.
+	Gameplay, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	Selecting "Restart Level" resets the dungeon and player state.
+	High
+	Pending
+	R31
+	Game Over
+	A Gameover Screen should popup if the player gets caught by an enemy, or falls into a pit that allows them to restart the level
+	Gameplay, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	A Game Over screen is displayed when the player is caught by an enemy or falls into a pit.
+	Medium
+	Pending
+	R40
+	Level Selection
+	The player must be able to select one dungeon from multiple options to enter and complete in the order they choose
+	Gameplay, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	Selecting one of the available dungeons loads a specific tileset that is different to the other available dungeons
+	High
+	Pending
+	R41
+	Level Completion
+	Players must be able to complete a level by locating and interacting with the final treasure chest
+	Gameplay, Progression
+	FR
+	Project Team, Game Design
+	Interacting with the final treasure chest successfully completes the level.
+	High
+	Pending
+	R42
+	Star System
+	The player earns 1-3 stars upon completing a level. One for completing the level, one finishing without getting caught, and one for completing a hidden objective
+	Gameplay, Progression
+	FR
+	Project Team, Game Design
+	The game awards between one and three stars according to the defined completion conditions.
+	Low
+	Pending
+	R50
+	Procedural Generation
+	The game should procedurally generate the overworld with different biomes that will change the theme of the dungeon
+	Level Design, User Interaction
+	FR
+	Game Design Specification, Project Stakeholder Requirements
+	Each new session generates different random biomes
+	Medium
+	Pending
+	R60
+	Intuitive Controls
+	The controls used to move the player should be simple and intuitive for all
+	User Interaction, Quality Assurance
+	FR and NFR
+	Developer Team, Project Stakeholder Requirements
+	Test users can understand and use movement controls without additional assistance.
+	High
+	Pending
+	R61
+	How To Play
+	There should be simple instructions on how to play the game that can be accessed from the start menu
+	User Interaction, User experience
+	FR
+	Developer Team, Project Stakeholder Requirements
+	A "How To Play" screen is accessible from the start menu and explains the core game mechanics.
+	Low
+	Pending
+	R70
+	Quality Assurance
+	The game should have no critical or high-severity bugs, and all known issues should be documented and resolved before release.
+	Reliability, User Experience, Quality Assurance
+	NFR
+	Developer Team, Stakeholder Requirements
+	No known bugs or issues on the submission date
+	High
+	Pending
+	R80
+	Performance
+	The game should maintain a frame rate of at least 30 FPS during normal gameplay
+	Performance, User Experience
+	NFR
+	Project Team, User Experience Goals
+	Average frame rate remains at or above 30 FPS during normal gameplay on the target hardware.
+	Medium
+	Pending
+	R81
+	Short Loading Times
+	The game should load levels and assets within 30 seconds
+	Performance, User Experience
+	NFR
+	Project Team, User Experience Goals
+	Levels and required assets load within 30 seconds on the target hardware.
+	Medium
+	Pending
+	R82
+	Windows compatibility
+	The game executable should be playable on Windows 11
+	User Experience
+	NFR
+	Project Team, User Experience Goals
+	The game executable launches and functions correctly on Windows 11.
+	High
+	Pending
+	
+
+Appendix D: Risk Register
+Appendix D1: Probability-Impact Matrix
+  
+
+Probability-Impact Matrix [17]
+Appendix D2: Risk Register
+Risk ID
+	Description
+	Root Cause
+	Trigger
+	Risk Response
+	Incident Response
+	Owner
+	Probability
+	Impact
+	Overall Score
+	Risk Status
+	Last Updated
+	R1
+	Project falls behind schedule
+	Underestimating development time 
+	Milestones missed 
+	Use task breakdowns and weekly progress tracking 
+	Reduce scope/features for MVP 
+	Project Manager 
+	Likely 
+	Major 
+	High 
+	Monitored 
+	28/05
+	R2
+	Bugs prevent progression through levels 
+	Logic errors in puzzles/events 
+	Players unable to complete levels 
+	Regular testing after each feature implementation 
+	Patch issue and rollback recent changes if needed 
+	QA / Dev Team 
+	Likely 
+	Major 
+	High 
+	Monitored 
+	28/05
+	R3
+	Team members contribute unevenly 
+	Poor communication or workload imbalance 
+	Tasks remain unfinished 
+	Assign clear responsibilities and deadlines 
+	Redistribute workload among team 
+	Project Manager 
+	Possible 
+	Major 
+	High 
+	Monitored 
+	28/05
+	R4
+	Game performance drops below acceptable FPS 
+	Inefficient rendering or asset handling 
+	FPS drops during gameplay 
+	Optimize assets and test regularly 
+	Reduce visual effects or asset complexity 
+	QA / Dev Team 
+	Unlikely 
+	Moderate
+	Medium
+	Monitored 
+	28/05
+	R5
+	Loss of project files or code conflicts 
+	Poor version control practices 
+	Missing/corrupted files or broken merges 
+	Use GitHub and frequent commits 
+	Restore from previous commits/backups 
+	Dev Team 
+	Possible 
+	Major 
+	High 
+	Monitored 
+	28/05
+	R6
+	Scope creep increases workload 
+	Adding too many features 
+	New ideas added mid-development 
+	Prioritize MVP requirements 
+	Cut non-essential features 
+	Project Manager 
+	Likely 
+	Moderate 
+	High 
+	Monitored 
+	28/05
+	R7
+	Art/assets are incomplete by deadline 
+	Time constraints or lack of art skills 
+	Missing textures/UI/assets near submission 
+	Use placeholder assets early 
+	Simplify visual scope 
+	Art/Design Lead 
+	Possible 
+	Moderate 
+	Medium
+	Monitored 
+	28/05
+	R8
+	MonoGame technical limitations cause delays 
+	Limited familiarity with framework 
+	Features harder to implement than expected 
+	Prototype risky systems early 
+	Replace or simplify difficult implementations 
+	System Architect
+	Possible 
+	Moderate 
+	Medium
+	Monitored 
+	28/05
+	R9
+	Major flaws found late in playtesting 
+	Insufficient early testing 
+	Significant redesign required 
+	Conduct early and frequent playtesting sessions 
+	Refactor or simplify problematic mechanics 
+	System Architect, QA Lead
+	Possible 
+	Major 
+	High 
+	Monitored 
+	28/05
+	R10
+	Individual team member technical skill limitations slow down development process
+	Limited prior experience with MonoGame, game development or C.
+	Task takes significantly longer than estimated
+	Provide early skill-building sessions, pair programming, and allocate time for research and prototyping
+	Simplify or redesign technically demanding features.  Reassign tasks to members with stronger expertise
+	System Architect, Project Manager
+	Possible
+	Major
+	High
+	Monitored
+	31/05
